@@ -58,8 +58,8 @@ void delAccount(vector<Account>& a) {
     cout<<a[a.size()-1].readUsername()<<"'s Account Has Been Deleted.\n";
     a.pop_back();
 }
-void enterAccount(vector<Account>& a,int target_Index) {
-    string un=a[target_Index].readUsername();
+void enterAccount(Account& a) {
+    string un=a.readUsername();
     cout<<"Welcome "<<un<<'\n';
     int choice;
     bool logout=false;
@@ -80,7 +80,8 @@ void loginAccount(vector<Account>& a) {
         cout<<"Account Not Found!\n";
         return;
     }
-    enterAccount(a,target_Index);
+    Account* targetAcc=&a[target_Index];
+    enterAccount(*targetAcc);
 }
 
 // Main Function
