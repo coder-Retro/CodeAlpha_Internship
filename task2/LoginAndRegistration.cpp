@@ -59,8 +59,20 @@ void delAccount(vector<Account>& a) {
     a.pop_back();
 }
 void enterAccount(vector<Account>& a,int target_Index) {
-    cout<<"Welcome "<<a[target_Index].readUsername()<<'\n';
-    // Account Features Here
+    string un=a[target_Index].readUsername();
+    cout<<"Welcome "<<un<<'\n';
+    int choice;
+    bool logout=false;
+    while( !logout ) {
+        // Account Features Here
+        cout<<"0. For Logout.\n";
+        cout<<"\nYour Choice: "; cin>>choice;
+        switch(choice) {
+            // Feature's Function Calls Here
+            case 0 : cout<<un<<" Logging Out ...\n"; return;
+            default: cout<<"Invalid Choice!\n";
+        }
+    }
 }
 void loginAccount(vector<Account>& a) {
     int target_Index=searchAccount(a);
