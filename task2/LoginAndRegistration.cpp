@@ -64,6 +64,7 @@ void enterAccount(Account& a) {
     int choice;
     bool logout=false;
     while( !logout ) {
+        cout<<"\nMenu:\n";
         // Account Features Here
         cout<<"0. For Logout.\n";
         cout<<"\nYour Choice: "; cin>>choice;
