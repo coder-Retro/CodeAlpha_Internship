@@ -2,7 +2,6 @@
 #include <fstream>
 #include <filesystem>
 #include <string>
-#include <utility>
 using namespace std;
 
 // Classes
@@ -29,9 +28,9 @@ public:
         if(un!="N/A") makeFile();
     }
     void setData(string un,string pw) {
+        deleteFile();
         username=un;
         password=pw;
-        deleteFile();
         fileName=un+".txt";
         makeFile();
     }
@@ -52,14 +51,14 @@ public:
             }
         }
         file.close();
-        return true;
+        return false;
     }
     void deleteFile() {
         if(filesystem::exists(fileName))
             filesystem::remove(fileName);
     }
     string readUsername()const { return username; }
-    bool matchPassword(string pw)const { return pw==password; }
+    bool matchPassword(const string& pw)const { return pw==password; }
     ~Account() {}
 };
 
